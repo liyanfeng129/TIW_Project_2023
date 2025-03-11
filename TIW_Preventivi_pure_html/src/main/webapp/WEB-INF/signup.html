@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/global.css" th:href="@{/css/global.css}"/>
+<title>Pagina di Signup</title>
+</head>
+<body>
+<div class="form-container" >
+	<form method="POST" th:action="@{/Signup}" id = "formSignup">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" placeholder="Inserire il tuo nome" name="name" required>
+			</div>
+			<div class="form-group">
+				<label for="name">Email</label>
+				<input type="email" placeholder="Inserire il tuo indirizzo di email" name="email" required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" placeholder="Inserire la tua password" name="password" required><br>
+			</div>
+			<button class="btn btn-large btn-purple" type="submit">Signup</button>
+		</form>
+		<div class="form-group">
+				<label for="permission">Permesso</label>
+					<select id="permission" form = "formSignup" name = "permission">
+  						<option value="client">Cliente</option>
+  						<option value="admin">Amministratore</option>
+					</select>
+		</div>
+		<div class="warning-message" th:if="${warning}">
+			<span th:text="${warning}">Dati non validi</span>
+		</div>
+		<hr>
+		<span><a class="btn btn-medium btn-inverted-gray" th:href="@{/}">Indietro</a></span>
+</div>
+
+</body>
+</html>

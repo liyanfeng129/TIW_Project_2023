@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="../css/global.css" th:href="@{/css/global.css}" />
+    <title>Pagina di creazione di preventivo</title>
+</head>
+<body>
+	<div th:replace="/WEB-INF/userStatus :: userStatus"> </div>
+	<h1>Personalizzare il tuo preventivo</h1>
+	<div class = "card-data card card-blue">
+		<div><b>Nome Prodotto: </b><span th:text="${product.name}">Prodotto</span></div>
+		<img th:src="${product.imgUrl}"  style="width:100px;height:100px;" />
+		<form th:action = "@{/SendPreventivo(productId=${product.id})}" method="post">
+    		<input type="checkbox" name="selectedOptions[]"  th:each="option : ${listOption}" th:value="${option.id}" th:text ="${option.name}" />
+    		<input type="submit">
+		</form>
+	</div>
+			
+</body>
+</html>
+
+			
+    			
+    

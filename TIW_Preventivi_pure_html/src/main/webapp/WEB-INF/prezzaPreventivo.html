@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="../css/global.css" th:href="@{/css/global.css}" />
+    <title>Pagina di gestione preventivo</title>
+</head>
+<body>
+<div th:replace="/WEB-INF/userStatus :: userStatus"> </div>
+	<div class = "card-data card card-blue">
+		<div><b>Nome Cliente: </b><span th:text="${preventive.clientName}">xxxx-xx-xx</span></div>
+		<div><b>Nome Prodotto: </b><span th:text="${preventive.productName}">xxxx-xx-xx</span></div>
+		<img th:src="${preventive.imgUrl}"  style="width:100px;height:100px;" />
+		<div><b>Opzioni: </b><div th:each="option : ${listOption}" th:text ="${option.name}"></div></div>
+		<div><b>Data di creazione: </b><span th:text="${preventive.creationDate}">xxxx-xx-xx</span></div>
+		<form  method="POST" th:action="@{/SendPrezzo(preventiveId=${preventive.id})}">
+        <div >
+            <label for="price">Prezzo</label>
+            <input type="number" placeholder="Inserire il prezzo" name="price" required>
+        </div>
+        <button class="button" type="submit">Invia</button>
+    </form>
+	</div>
+</body>
+</html>

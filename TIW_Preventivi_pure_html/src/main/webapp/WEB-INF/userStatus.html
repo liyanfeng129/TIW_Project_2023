@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="../css/global.css" th:href="@{/css/global.css}" />
+	<title>User status</title>
+</head>
+<body>
+	<div th:fragment="userStatus" th:if="${session.currentUser}">
+		<div class="header-div">
+			<div class="header-title">I tuoi dati</div>
+			<div class="header-content">
+				Nome Utente: <b><span th:text="${session.currentUser.name}">Nome utente</span></b><br>
+				Codice Personale: <b><span th:text="${session.currentUser.id}">0476</span></b>
+				<div class="header-buttons">
+					<div th:switch="${session.currentUser.permission}">
+						<div th:case="client">
+							<span><a class="btn btn-medium btn-inverted-gray" th:href="@{/GoToHomeClient}">La tua pagina home</a></span>
+						</div>
+						<div th:case="admin">
+							<span><a class="btn btn-medium btn-inverted-gray" th:href="@{/GoToHomeAdmin}">La tua pagina home</a></span>
+						</div>
+						<div th:case="*">
+							<span><a class="btn btn-medium btn-inverted-gray" th:href="">Errore in buttone</a></span>
+						</div>
+					</div>	
+					<span><a class="btn btn-medium btn-inverted-gray" th:href="@{/Logout}">Log out</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

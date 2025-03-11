@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="../css/global.css" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" th:href="@{/css/login.css}"/>
+    <title>Pagina di Login</title>
+</head>
+<body>
+
+<div class="form-container" >
+    <div><h1>Benvenuti al servizio preventivi</h1></div>
+    <div >Inserire i credenziali per effetuare il login</div>
+    <form  method="POST" th:action="@{/Login}">
+        <div >
+            <label for="email">Email</label>
+            <input type="email" placeholder="Inserire il tuo email" name="email" required>
+        </div>
+        <div >
+            <label for="password">Password</label>
+            <input type="password" placeholder="Inserire il tuo password" name="password" required>
+        </div>
+        <button class="button" type="submit">Login</button>
+    </form>
+    <div class="warning" th:if="${warning}">
+        <span th:text="${warning}">Email or password not valid!</span>
+    </div>
+    <hr>
+    <a th:href="@{/GoToSignUp}">Signup</a>
+</div>
+</body>
+</html>
