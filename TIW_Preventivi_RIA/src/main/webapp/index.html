@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
+    <script src="login.js" charset="utf-8" defer></script>
+    <script src="utils.js" charset="utf-8" defer></script>
+    <title>Pagina di Login</title>
+</head>
+<body>
+
+<div><h1>Benvenuti al servizio preventivi</h1></div>
+<div id = "login_div" class="form-container" >
+    <div >Inserire i credenziali per effetuare il login</div>
+    <form  method="POST" action="#">
+        <div>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Inserire il tuo email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Inserire il tuo password" name="password" required>
+        </div>
+        <input id="login_button" class="button" type="button" value = "Login"/>
+    </form>
+    <div id = "login_warning" class="warning" >
+       
+    </div>
+    <hr>
+    <a id = "open_signup" href="#">Signup</a>
+</div>
+
+<div id = "signup_div" class="form-container" >
+<div >Inserire i dati per effettuare signup</div>
+	<form method="POST" action="#">
+			<div>
+				<label for="name">Name</label>
+				<input type="text" placeholder="Inserire il tuo nome" name="name" required>
+			</div>
+			<div>
+				<label for="name">Email</label>
+				<input type="email" placeholder="Inserire il tuo indirizzo di email" name="email" required>
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" placeholder="Inserire la tua password" name="password" required><br>
+			</div>
+			<div>
+					<label for="passwordConfirm">Ripetere Password</label>
+					<input type="password" placeholder="Ripetere la tua password" name="passwordConfirm" required><br>
+			</div>
+			<div>
+				<label for="permission">Permesso</label>
+					<select id="permission"  name = "permission" required>
+  						<option value="client">Cliente</option>
+  						<option value="admin">Amministratore</option>
+					</select>
+			</div>
+			<input class="button" type="button" id = "signup_button" value = "Signup">
+		</form>
+		
+		<div class="warning-message" id = "signup_warning">Dati non corretti</div>
+		<hr>
+		<span><a class="btn btn-medium btn-inverted-gray" id = "signup_back_button">Indietro</a></span>
+</div>
+
+</body>
+</html>

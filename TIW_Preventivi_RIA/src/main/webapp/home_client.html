@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <script src="home_client.js" charset="utf-8" defer></script>
+    <script src="utils.js" charset="utf-8" defer></script>
+    <title>Pagina di Home cliente</title>
+</head> 	
+<body>
+	<div class="header-div">
+			<div class="header-title">I tuoi dati</div>
+			<div class="header-content">
+				Nome Utente: <b><span id = "header_user_name">Nome utente</span></b><br>
+				Codice Personale: <b><span id = "header_user_id">0476</span></b>
+				<div class="header-buttons">
+					<span><a class="btn btn-medium btn-inverted-gray" id = "header_return_button">Torna in Pagina home</a></span>
+					<span><a class="btn btn-medium btn-inverted-gray" id = "header_logout_button" href="Logout">Log out</a></span>
+				</div>
+			</div>
+	</div>
+	
+	<div class = "listView-div purple-div" id = "preventivo_list_div">	
+		<div class = "listView-title">I tuoi preventivi</div>
+		<div class="warning-message" id = "preventivo_list_div_error">Errori</div>
+	</div>
+	
+	<div class = "listView-div purple-div" id = "product_list_div">
+		<div class = "listView-title">Prodotto </div>
+		<div class="warning-message" id = "product_list_div_error">Errori</div>
+	</div>
+	
+	<div class = "card-data card card-blue" id="preventivo_detail_div">
+		<div><b>Nome Cliente: </b><span id = "preventivo_detail_div_client_name">xxxx-xx-xx</span></div>
+		<div><b>Nome Operatore: </b><span id = "preventivo_detail_div_operator_name">xxxx-xx-xx</span></div>
+		<div><b>Nome Prodotto: </b><span id = "preventivo_detail_div_product_name">xxxx-xx-xx</span></div>
+		<img id = "preventivo_detail_div_img_url"  style="width:100px;height:100px;" />
+		<div><b>Data di creazione: </b><span id = "preventivo_detail_div_creation_date">xxxx-xx-xx</span></div>
+		<div><b>Prezzo: </b><span  id = "preventivo_detail_div_price">xxxx-xx-xx</span></div>
+		<div id = "preventivo_detail_div_options"></div>
+	</div>
+	
+	<div class = "card-data card card-blue" id = "form_preventivo_div">
+		<div><b>Nome Prodotto: </b><span id = "form_preventivo_div_product_name">Prodotto</span></div>
+		<img id = "form_preventivo_div_img_url" style="width:100px;height:100px;" />
+		<form action="#" method="post" id = "form_preventivo_div_form">
+			<!-- 
+				<input type="checkbox" name="selectedOptions[]"  th:each="option : ${listOption}" th:value="${option.id}" th:text ="${option.name}" />
+			 -->
+	    	<input type="submit" id = "form_preventivo_div_submit_button">
+		</form>
+	</div>
+	  
+	  
+	  
+	<div class="error-div" id = "error_div">
+
+		<div class="error-title">An error occured</div>
+		<div class="error-reason">
+			Your error is: <b><span id = "error_message">sample error</span></b>
+		</div>
+		<span><a class="btn btn-medium btn-inverted-gray" id = "error_div_button">Uscire</a></span>
+	</div>
+	
+	
+
+</body>
+</html>

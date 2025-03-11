@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>TIW_Preventivi_RIA</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    	<param-name>dbUrl</param-name>
+    	<param-value>jdbc:mysql://127.0.0.1:3306/gestione_preventivi?serverTimezone=Europe/Rome</param-value>
+	</context-param>
+    <context-param>
+        <param-name>dbUser</param-name>
+        <param-value>root</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbPassword</param-name>
+        <param-value>Wochao1mabi</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbDriver</param-name>
+        <param-value>com.mysql.cj.jdbc.Driver</param-value>
+  	</context-param>
+  	
+  	<filter>
+		<filter-name>CheckAdmin</filter-name>
+		<filter-class>filters.CheckAdmin</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>CheckClient</filter-name>
+		<filter-class>filters.CheckClient</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>CheckNotLoggedUser</filter-name>
+		<filter-class>filters.CheckNotLoggedUser</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>CheckLoggedUser</filter-name>
+		<filter-class>filters.CheckLoggedUser</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>NoCacher</filter-name>
+		<filter-class>filters.NoCacher</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	  	<filter-name>NoCacher</filter-name>
+	  	<url-pattern>/index.html</url-pattern>
+	  	<url-pattern>/home_client.html</url-pattern>
+	  	<url-pattern>/home_admin.html</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter-mapping>
+	  	<filter-name>CheckNotLoggedUser</filter-name>
+	  	<url-pattern>/index.html</url-pattern>
+	  	<url-pattern>/Login</url-pattern>
+	  	<url-pattern>/Signup</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+	  	<filter-name>CheckLoggedUser</filter-name>
+	  	<url-pattern>/home_client.html</url-pattern>
+	    <url-pattern>/home_admin.html</url-pattern>
+	  	<url-pattern>/SendPreventivo</url-pattern>
+	  	<url-pattern>/SendPrezzo</url-pattern>
+	  	<url-pattern>/GetAdminAvailableList</url-pattern>
+	  	<url-pattern>/GetAdminPreventivoList</url-pattern>
+	  	<url-pattern>/GetClientPreventivoList</url-pattern>
+	  	<url-pattern>/GetPreventivoDetails</url-pattern>
+	  	<url-pattern>/GetPreventivoPrezza</url-pattern>
+	  	<url-pattern>/GetProductList</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	  	<filter-name>CheckClient</filter-name>
+	  	<url-pattern>/home_client.html</url-pattern>
+	  	<url-pattern>/SendPreventivo</url-pattern>
+	  	<url-pattern>/GetClientPreventivoList</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	  	<filter-name>CheckAdmin</filter-name>
+	  	<url-pattern>/home_admin.html</url-pattern>
+	  	<url-pattern>/SendPrezzo</url-pattern>
+	  	<url-pattern>/GetAdminAvailableList</url-pattern>
+	  	<url-pattern>/GetAdminPreventivoList</url-pattern>
+	  	<url-pattern>/GetPreventivoPrezza</url-pattern>
+	</filter-mapping>
+	
+	
+</web-app>
